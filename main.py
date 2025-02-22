@@ -14,7 +14,8 @@ AGENTS = [
         "model": "deepseek-chat",
         "api_key": "sk-787e14578cd44719b8ba8bdca63c45b6",
         "base_url": "https://api.deepseek.com/v1",
-        "temperature": 0.7
+        "temperature": 0.7,
+        "memory_length": 4  # Remember last 4 messages
     },
     {
         "name": "Bob",
@@ -27,7 +28,8 @@ AGENTS = [
         "model": "deepseek-chat",
         "api_key": "sk-787e14578cd44719b8ba8bdca63c45b6",
         "base_url": "https://api.deepseek.com/v1",
-        "temperature": 0.5
+        "temperature": 0.5,
+        "memory_length": 3  # Bob has shorter memory
     },
     {
         "name": "Charlie",
@@ -40,7 +42,8 @@ AGENTS = [
         "model": "deepseek-chat",
         "api_key": "sk-787e14578cd44719b8ba8bdca63c45b6",
         "base_url": "https://api.deepseek.com/v1",
-        "temperature": 0.8
+        "temperature": 0.8,
+        "memory_length": 5  # Charlie has longer memory
     }
 ]
 
@@ -54,7 +57,7 @@ def main():
         chatroom.add_agent(agent)
     
     # Start conversation
-    initial_prompt = "让我们讨论一下人工智能对未来社会的影响。"
+    initial_prompt = "让我们讨论一下AI时代下,对话式编程工程师的前景 。"
     chatroom.start_conversation(initial_prompt, num_rounds=5)
 
 if __name__ == "__main__":
