@@ -1,5 +1,6 @@
 from agent import Agent
 from chatroom import ChatRoom
+from process_manager import ProcessManager
 import textwrap
 
 AGENTS = [
@@ -14,8 +15,7 @@ AGENTS = [
         "model": "deepseek-chat",
         "api_key": "sk-787e14578cd44719b8ba8bdca63c45b6",
         "base_url": "https://api.deepseek.com/v1",
-        "temperature": 0.7,
-        "memory_length": 4  # Remember last 4 messages
+        "temperature": 0.7
     },
     {
         "name": "Bob",
@@ -28,8 +28,7 @@ AGENTS = [
         "model": "deepseek-chat",
         "api_key": "sk-787e14578cd44719b8ba8bdca63c45b6",
         "base_url": "https://api.deepseek.com/v1",
-        "temperature": 0.5,
-        "memory_length": 3  # Bob has shorter memory
+        "temperature": 0.5
     },
     {
         "name": "Charlie",
@@ -42,23 +41,92 @@ AGENTS = [
         "model": "deepseek-chat",
         "api_key": "sk-787e14578cd44719b8ba8bdca63c45b6",
         "base_url": "https://api.deepseek.com/v1",
-        "temperature": 0.8,
-        "memory_length": 5  # Charlie has longer memory
+        "temperature": 0.8
+    },
+    {
+        "name": "Diana",
+        "system_prompt": textwrap.dedent("""
+            你是Diana，具有以下特点：
+            1. 擅长总结归纳
+            2. 思维缜密严谨
+            3. 善于提供建设性意见
+        """),
+        "model": "deepseek-chat",
+        "api_key": "sk-787e14578cd44719b8ba8bdca63c45b6",
+        "base_url": "https://api.deepseek.com/v1",
+        "temperature": 0.6
+    },
+    {
+        "name": "Eric",
+        "system_prompt": textwrap.dedent("""
+            你是Eric，具有以下特点：
+            1. 幽默风趣
+            2. 善于活跃气氛
+            3. 经常用比喻来解释复杂概念
+        """),
+        "model": "deepseek-chat",
+        "api_key": "sk-787e14578cd44719b8ba8bdca63c45b6",
+        "base_url": "https://api.deepseek.com/v1",
+        "temperature": 0.9
+    },
+    {
+        "name": "Fiona",
+        "system_prompt": textwrap.dedent("""
+            你是Fiona，具有以下特点：
+            1. 充满好奇心
+            2. 喜欢探索新观点
+            3. 经常从不同角度思考问题
+        """),
+        "model": "deepseek-chat",
+        "api_key": "sk-787e14578cd44719b8ba8bdca63c45b6",
+        "base_url": "https://api.deepseek.com/v1",
+        "temperature": 0.75
+    },
+    {
+        "name": "George",
+        "system_prompt": textwrap.dedent("""
+            你是George，具有以下特点：
+            1. 理性客观
+            2. 擅长数据分析
+            3. 总是用事实支持观点
+        """),
+        "model": "deepseek-chat",
+        "api_key": "sk-787e14578cd44719b8ba8bdca63c45b6",
+        "base_url": "https://api.deepseek.com/v1",
+        "temperature": 0.4
+    },
+    {
+        "name": "Hannah",
+        "system_prompt": textwrap.dedent("""
+            你是Hannah，具有以下特点：
+            1. 富有同理心
+            2. 善于从人文角度思考
+            3. 关注科技对人类情感和关系的影响
+        """),
+        "model": "deepseek-chat",
+        "api_key": "sk-787e14578cd44719b8ba8bdca63c45b6",
+        "base_url": "https://api.deepseek.com/v1",
+        "temperature": 0.65
+    },
+    {
+        "name": "Ian",
+        "system_prompt": textwrap.dedent("""
+            你是Ian，具有以下特点：
+            1. 哲学思维
+            2. 善于提出深层次问题
+            3. 经常探讨事物的本质和伦理影响
+        """),
+        "model": "deepseek-chat",
+        "api_key": "sk-787e14578cd44719b8ba8bdca63c45b6",
+        "base_url": "https://api.deepseek.com/v1",
+        "temperature": 0.85
     }
 ]
 
 def main():
-    # Create chatroom
-    chatroom = ChatRoom("Main Room")
-    
-    # Create and add agents
-    for agent_config in AGENTS:
-        agent = Agent(agent_config)
-        chatroom.add_agent(agent)
-    
-    # Start conversation
-    initial_prompt = "让我们讨论一下AI时代下,对话式编程工程师的前景 。"
-    chatroom.start_conversation(initial_prompt, num_rounds=5)
+    # Create and start process manager
+    process_manager = ProcessManager(AGENTS)
+    process_manager.start_rooms()
 
 if __name__ == "__main__":
     main()
