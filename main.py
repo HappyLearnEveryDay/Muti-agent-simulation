@@ -15,7 +15,10 @@ AGENTS = [
         "model": "deepseek-chat",
         "api_key": "sk-787e14578cd44719b8ba8bdca63c45b6",
         "base_url": "https://api.deepseek.com/v1",
-        "temperature": 0.7
+        "temperature": 0.7,
+        "context_window": 3,
+        "max_tokens": 250,     # 提高到 250
+        "handle_truncation": True
     },
     {
         "name": "Bob",
@@ -28,7 +31,10 @@ AGENTS = [
         "model": "deepseek-chat",
         "api_key": "sk-787e14578cd44719b8ba8bdca63c45b6",
         "base_url": "https://api.deepseek.com/v1",
-        "temperature": 0.5
+        "temperature": 0.5,
+        "context_window": 5,
+        "max_tokens": 300,     # 提高到 300
+        "handle_truncation": True
     },
     {
         "name": "Charlie",
@@ -41,7 +47,10 @@ AGENTS = [
         "model": "deepseek-chat",
         "api_key": "sk-787e14578cd44719b8ba8bdca63c45b6",
         "base_url": "https://api.deepseek.com/v1",
-        "temperature": 0.8
+        "temperature": 0.8,
+        "context_window": 2,
+        "max_tokens": 200,     # 提高到 200
+        "handle_truncation": True
     },
     {
         "name": "Diana",
@@ -54,7 +63,10 @@ AGENTS = [
         "model": "deepseek-chat",
         "api_key": "sk-787e14578cd44719b8ba8bdca63c45b6",
         "base_url": "https://api.deepseek.com/v1",
-        "temperature": 0.6
+        "temperature": 0.6,
+        "context_window": 4,
+        "max_tokens": 300,     # 提高到 300
+        "handle_truncation": True
     },
     {
         "name": "Eric",
@@ -67,7 +79,10 @@ AGENTS = [
         "model": "deepseek-chat",
         "api_key": "sk-787e14578cd44719b8ba8bdca63c45b6",
         "base_url": "https://api.deepseek.com/v1",
-        "temperature": 0.9
+        "temperature": 0.9,
+        "context_window": 2,
+        "max_tokens": 250,     # 提高到 250
+        "handle_truncation": True
     },
     {
         "name": "Fiona",
@@ -80,7 +95,10 @@ AGENTS = [
         "model": "deepseek-chat",
         "api_key": "sk-787e14578cd44719b8ba8bdca63c45b6",
         "base_url": "https://api.deepseek.com/v1",
-        "temperature": 0.75
+        "temperature": 0.75,
+        "context_window": 3,
+        "max_tokens": 250,     # 提高到 250
+        "handle_truncation": True
     },
     {
         "name": "George",
@@ -93,7 +111,10 @@ AGENTS = [
         "model": "deepseek-chat",
         "api_key": "sk-787e14578cd44719b8ba8bdca63c45b6",
         "base_url": "https://api.deepseek.com/v1",
-        "temperature": 0.4
+        "temperature": 0.4,
+        "context_window": 5,
+        "max_tokens": 300,     # 提高到 300
+        "handle_truncation": True
     },
     {
         "name": "Hannah",
@@ -106,7 +127,10 @@ AGENTS = [
         "model": "deepseek-chat",
         "api_key": "sk-787e14578cd44719b8ba8bdca63c45b6",
         "base_url": "https://api.deepseek.com/v1",
-        "temperature": 0.65
+        "temperature": 0.65,
+        "context_window": 4,
+        "max_tokens": 300,     # 提高到 300
+        "handle_truncation": True
     },
     {
         "name": "Ian",
@@ -119,7 +143,10 @@ AGENTS = [
         "model": "deepseek-chat",
         "api_key": "sk-787e14578cd44719b8ba8bdca63c45b6",
         "base_url": "https://api.deepseek.com/v1",
-        "temperature": 0.85
+        "temperature": 0.85,
+        "context_window": 6,
+        "max_tokens": 350,     # 提高到 350
+        "handle_truncation": True
     }
 ]
 
